@@ -7,7 +7,7 @@ import Config
 # Run `mix help test` for more information.
 config :bowling_game, BowlingGame.Repo,
   username: "postgres",
-  password: "postgres",
+  password: "helloworld",
   database: "bowling_game_test#{System.get_env("MIX_TEST_PARTITION")}",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox,

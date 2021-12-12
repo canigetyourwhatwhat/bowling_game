@@ -1,0 +1,12 @@
+<%= form_for @conn, Routes.session_path(@conn, :create), [as: :session], fn session -> %>
+    <h1>Let's play!</h1>
+
+    <p>
+        <%= label session, :username, class: "control-label" %>
+        <br>
+        <%= text_input session, :username, class: "form-control" %>
+        <%= error_tag session, :username %>
+    </p>
+
+    <%= submit "Start game", class: "btn btn-primary", id: "submit" %>
+<% end %>

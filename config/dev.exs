@@ -3,7 +3,7 @@ import Config
 # Configure your database
 config :bowling_game, BowlingGame.Repo,
   username: "postgres",
-  password: "postgres",
+  password: "helloworld",
   database: "bowling_game_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,

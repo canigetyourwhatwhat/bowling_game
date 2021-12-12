@@ -10,14 +10,30 @@ defmodule BowlingGameWeb.Router do
     plug :put_secure_browser_headers
   end
 
+  pipeline :browser_auth do
+    plug BowlingGame.AuthPipeline
+  end
+
+  pipeline :ensure_auth do
+    plug Guardian.Plug.EnsureAuthenticated
+  end
+
   pipeline :api do
     plug :accepts, ["json"]
   end
 
   scope "/", BowlingGameWeb do
-    pipe_through :browser
+    pipe_through [:browser]
+    resources "/sessions", SessionController, only: [:new, :create, :delete]
+  end
 
+  scope "/", BowlingGameWeb do
+    pipe_through [:browser, :browser_auth]
     get "/", PageController, :index
+    get "/start", PageController, :start
+    get "/play", PageController, :play
+    post "/result", PageController, :result
+
   end
 
   # Other scopes may use custom stacks.

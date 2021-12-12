@@ -50,3 +50,7 @@ config :phoenix, :json_library, Jason
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{config_env()}.exs"
+
+config :bowling_game, BowlingGame.Guardian,
+  issuer: "bowling_game",
+  secret_key: "kIrhxqd3l5bRntR3ClDwU/AcFNCh/TDiYfUKMjYfGvCsbkX8f0tTw0bUIkef0prW"
